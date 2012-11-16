@@ -1,0 +1,15 @@
+<body>
+  {{>talks}}
+</body>
+
+<template name="talks">
+  {{#each talks}}
+    {{> talk }}
+  {{/each}}
+</template>
+
+<template name="talk">
+  {{ title  }}
+  {{ time   }}
+  {{ presenter }}
+</template>
