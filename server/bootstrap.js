@@ -12,6 +12,7 @@ csv.split("\n").map(function(m){
 talks = [ 
   { time: '2:00',
     title: 'Introducción al evento',
+    ends_at: new Date(Date.parse("Fri, 16 Nov 2012 2:15 PM GMT-0600")),
     speaker: 'Organizadores BarCamp' },
   { time: '2:15 ',
     title: 'Uso de software libre y aplicaciones de código abierto',
@@ -25,6 +26,10 @@ talks = [
   { time: '3:45',
     title: 'Desarrollo con JavaScript y Node.js',
     speaker: 'Alejandro Morales' },
+  { time: "4:15",
+    room: null,
+    title: "Break/Networking",
+    speaker: "Todos los participantes"},
   { time: '4:45',
     title: 'Hacking del lenguaje corporal',
     speaker: 'Reniery O\'Hara' },
@@ -43,6 +48,9 @@ talks = [
   { time: '7:15',
     title: 'Rescate de la Antigua Penitenciería Central',
     speaker: 'Colectivo Acción Hormiga' },
+  { time: '7:45',
+    title: 'VJ y Mapping',
+    speaker: 'Gabriel Vallecillo' },
   { time: '8:15',
     title: 'Cierre',
     speaker: 'Organizadores BarCamp' } ]
@@ -50,7 +58,17 @@ talks = [
 Meteor.startup(function(){
   if(!Talks.find().count()){
     talks.forEach(function(talk){
-      Talks.insert(_(talk).extend({active: false}));
+      var starts = new Date(Date.parse("Fri, 16 Nov 2012 "+ talk.time +" PM GMT-0600"))
+        , ends   = new Date(starts.getTime());
+
+      ends.setMinutes(starts.getMinutes()+30);
+
+      Talks.insert(_(talk).defaults({
+        room: 1, 
+        status: "No ha empezado",
+        starts_at: starts,
+        ends_at: ends
+      }));
     });
   }
 });
