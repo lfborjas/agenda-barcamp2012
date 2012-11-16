@@ -1,2 +1,2 @@
 Template.talks.talks = ->
-  Talks.find({})
+  Talks.find({}, {sort: {starts_at: 1}})

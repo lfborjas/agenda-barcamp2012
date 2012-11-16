@@ -1,0 +1,43 @@
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+		<meta name="description" content="Agenda oficial BarCamp Tegucigalpa" />
+		<meta name="keywords" content="barcamp, tegucigalpa, honduras, tecnologia, ccet" />
+		<meta name="web_author" content="Yamil Gonzales" />
+		<title>Agenda BarCamp Tegucigalpa</title>
+		<link href='http://fonts.googleapis.com/css?family=Kite+One' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body>
+
+		<div id="wrapper">
+			<table id="agenda">
+				<h1>BarCamp Tegucigalpa</h1>
+				<tr>
+					<thead>
+						<th>Sala</th>
+						<th>Hora</th>
+						<th>Tema</th>
+						<th>Ponente</th>
+						<th>Estado</th>
+					</thead>
+				</tr>
+        {{> talks }}
+			</table>
+		</div>
+	
+	</body>
+
+<template name="talks">
+  {{#each talks}}
+    <tr>{{> talk }}</tr>
+  {{/each}}
+</template>
+
+<template name="talk">
+    <td>{{ room }}</td>
+    <td>{{ time  }}</td>
+    <td>{{ title }}</td>
+    <td>{{ speaker }}</td>
+    <td>{{ status }}</td>
+</template>
