@@ -5,7 +5,7 @@ if DEBUG
 
 setStatuses = ->
   now = Meteor.my_now if DEBUG
-  now = Date.now()
+  now = new Date()
   Talks.find({starts_at: {$lte: now}}).forEach (talk)->
     if talk.ends_at <= now
       Talks.update({_id: talk._id}, {$set: {status: "Terminada"}})
