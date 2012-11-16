@@ -40,7 +40,7 @@ talks = [
     title: 'El modelo de programación GPGPU',
     speaker: 'José Alejandro Matute' },
   { time: '6:15',
-    title: 'Titulo pendiente',
+    title: 'Crimenpensar: la tragicomedia de un programador',
     speaker: 'Luis Felipe Borjas' },
   { time: '6:45',
     title: 'Interfaces alternativas para la expresión artística',
