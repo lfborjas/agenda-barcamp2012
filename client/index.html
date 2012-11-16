@@ -30,14 +30,24 @@
 
 <template name="talks">
   {{#each talks}}
-    <tr>{{> talk }}</tr>
+    {{> talk }}
   {{/each}}
 </template>
 
 <template name="talk">
+  <tr class="talk" data-id="{{ _id }}">
     <td>{{ room }}</td>
     <td>{{ time  }}</td>
-    <td>{{ title }}</td>
+    <td class="talk-title">
+      <span class="talk-original-title"> {{ title }} </span>
+      <form class="form-inline edit-talk-form" accept-charset="utf-8" >
+        <div class="input-append">
+          <input type="text" class="input-large talk-new-title" value="{{ title }}" />
+          <button type="button" class="btn btn-primary update-talk-title" data-id="{{_id}}">Actualizar</button>
+        </div>
+      </form>
+    </td>
     <td>{{ speaker }}</td>
     <td>{{ status }}</td>
+  </tr>
 </template>
