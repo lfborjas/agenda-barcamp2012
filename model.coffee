@@ -1,5 +1,5 @@
 @Talks = new Meteor.Collection("talks")
-@DEBUG = true
+@DEBUG = false
 if @DEBUG
   Meteor.my_now = new Date(Date.parse("2013-04-21T10:00:00.000Z"))
 
